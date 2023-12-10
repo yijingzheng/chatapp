@@ -1,4 +1,9 @@
-const wss = new WebSocket('ws://localhost:5700');
+const isSecure = location.protocol === 'https:';
+const protocol = isSecure ? 'wss://' : 'ws://';
+const port = location.port ? `:${location.port}` : '';
+const wss = new WebSocket(`${protocol}${location.hostname}${port}`);
+
+// const wss = new WebSocket('ws://localhost:5700');
 
 const form = document.getElementById('form');
 const input = document.getElementById('input');

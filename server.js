@@ -8,8 +8,9 @@ const wss = new WebSocketServer({ server });
 
 app.use(express.static('public'));
 
-server.listen(5700, () => {
-    console.log('listening on port 5700');
+const PORT = process.env.PORT || 5700;
+server.listen(PORT, () => {
+    console.log(`listening on port ${PORT}`);
 });
 
 wss.on('connection', (ws) => {
