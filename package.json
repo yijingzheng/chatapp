@@ -1,0 +1,10 @@
+{
+    "name": "cs5700-final",
+    "version": "1.0.0",
+    "description": "",
+    "type": "module",
+    "dependencies": {
+        "express": "^4.18.2",
+        "ws": "^8.15.0"
+    }
+}
