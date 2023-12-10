@@ -18,12 +18,9 @@ wss.on('connection', (ws) => {
     console.log('User connected');
 
     ws.on('message', (data) => {
-        const msg = Buffer.from(data).toString()
-        console.log('Received message:', msg);
         wss.clients.forEach((client) => {
             if (client !== ws && client.readyState === WebSocket.OPEN) {
-                // if (client.readyState === WebSocket.OPEN) {
-                client.send(msg);
+                client.send(JSON.stringify(JSON.parse(data)));
             }
         });
     });
